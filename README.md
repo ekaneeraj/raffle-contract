@@ -1,22 +1,22 @@
 # Getting Started
 
 ## Deployed contract address:
-1. Address: 0x9AdaD23a5EBCaDF89189882D42d5B033211F5EB7
-2. Explorer link: [Link](https://sepolia.etherscan.io/address/0x9adad23a5ebcadf89189882d42d5b033211f5eb7)
+1. Address: 0x439ee84ab8fdc3def49ba969adcbba24815538f6
+2. Explorer link: [Link](https://sepolia.etherscan.io/address/0x439ee84ab8fdc3def49ba969adcbba24815538f6)
 
 ## Requirements
 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
   - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
 - [foundry](https://getfoundry.sh/)
-  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
+  - You'll know you did it right if you can run `forge --version` 
 
 
 ## Quickstart
 
 ```
-git clone https://github.com/ekaneeraj/fund-me-contract
-cd fund-me-contract
+git clone https://github.com/ekaneeraj/raffle-contract
+cd raffle-contract
 forge build
 ```
 
@@ -25,7 +25,7 @@ forge build
 ## Deploy:
 
 ```
-forge script script/DeployFundMe.s.sol
+forge script script/DeployRaffle.s.sol
 ```
 
 ## Testing
@@ -37,7 +37,7 @@ Out of 4 test tiers.
 3. Forked
 4. Staging
 
-This repo have Unit testing and Forked testing. 
+This repo have Unit testing, Forked and Staging testing. 
 
 ```
 forge test
@@ -97,35 +97,14 @@ Head over to [faucets.chain.link](https://faucets.chain.link/) and get some test
 3. Deploy
 
 ```
-forge script script/DeployFundMe.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY
+forge script script/DeployRaffle.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
 or
 
  deploy using keystore
 ```bash
-forge script script/DeploySimpleStorage.s.sol --rpc-url $SEPOLIA_RPC_URL --account defaultKey --sender <Wallet Address> --broadcast`
-```
-
-## Scripts
-
-After deploying to a testnet or local net, you can run the scripts. 
-
-Using cast deployed locally example: 
-
-```
-cast send <FUNDME_CONTRACT_ADDRESS> "fund()" --value 0.1ether --private-key <PRIVATE_KEY>
-```
-
-or
-```
-forge script script/Interactions.s.sol --rpc-url sepolia  --private-key $PRIVATE_KEY  --broadcast
-```
-
-### Withdraw
-
-```
-cast send <FUNDME_CONTRACT_ADDRESS> "withdraw()"  --private-key <PRIVATE_KEY>
+forge script script/DeployRaffle.s.sol --rpc-url $SEPOLIA_RPC_URL --account defaultKey --sender <Wallet Address> --broadcast`
 ```
 
 ## Estimate gas

@@ -3,7 +3,7 @@ pragma solidity 0.8.21;
 
 import {Script} from "forge-std/Script.sol";
 import {VRFCoordinatorV2Mock} from "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol";
-import { LinkToken } from "../test/mock/LinkToken.sol";
+import {LinkToken} from "../test/mock/LinkToken.sol";
 
 contract HelperConfig is Script {
     NetworkConfig public activeNetworkConfig;
@@ -22,6 +22,7 @@ contract HelperConfig is Script {
         address vrfCoordinator;
         address link;
         bytes32 gasLane;
+        uint256 deployerKey;
         uint256 interval;
         uint256 entranceFee;
         uint64 subscriptionId;
@@ -41,6 +42,7 @@ contract HelperConfig is Script {
             vrfCoordinator: vrfCoordinatorAddressSepolia,
             link: linkAddressSepolia,
             gasLane: gasLaneHashSepolia,
+            deployerKey: vm.envUint("PRIVATE_KEY"),
             interval: INTERVAL,
             entranceFee: ENTRANCE_FEE,
             subscriptionId: subId,
@@ -65,6 +67,7 @@ contract HelperConfig is Script {
             vrfCoordinator: address(vrfCoordinatorV2Mock),
             link: address(linkToken),
             gasLane: gasLaneHashSepolia,
+            deployerKey: vm.envUint("ANVIL_KEY"),
             interval: INTERVAL,
             entranceFee: ENTRANCE_FEE,
             subscriptionId: SUBSCRIPTION_ID,
